@@ -2,6 +2,11 @@
 
 Simple web app using google gemini to analyze your blood reports.
 
+## Demo
+**[Live Demo](https://blood-report-analysis-khv7.onrender.com)**
+
+Hosted on free tier, might take a few seconds to load :)
+
 ## How to Run
 
 1.  **Clone the repository** (or download the files).
