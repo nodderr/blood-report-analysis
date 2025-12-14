@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Report AI Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🩺 Health Decoder</h1>
+            <p>Upload your blood report and let AI explain it simply.</p>
+        </header>
+
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept=".pdf, .jpg, .png">
+            <button id="analyzeBtn" onclick="analyzeReport()">Analyze Report</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <p>Analyzing... please wait...</p>
+        </div>
+
+        <div id="resultSection" class="hidden">
+            <h2>Your Summary</h2>
+            <div id="output" class="markdown-body">
+                </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
