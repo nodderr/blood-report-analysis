@@ -5,6 +5,12 @@ body {
     justify-content: center;
     padding: 50px;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
 }
 
 .container {
@@ -15,16 +21,31 @@ body {
     max-width: 600px;
     width: 100%;
     text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .container {
+    background-color: #16213e;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 h1 { color: #2c3e50; }
 p { color: #1a252f; }
+
+body.dark-mode h1 { color: #ecf0f1; }
+body.dark-mode p { color: #bdc3c7; }
 
 .upload-section {
     margin: 2rem 0;
     padding: 2rem;
     border: 2px dashed #bdc3c7;
     border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.upload-section.highlight {
+    border-color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
 }
 
 button {
@@ -50,7 +71,46 @@ button:hover { background-color: #2980b9; }
     border-radius: 8px;
 }
 
-.watermark{
+body.dark-mode #resultSection {
+    background: #0f3460;
+    color: #e0e0e0;
+}
+
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #2c3e50;
+    font-size: 0.8rem;
+}
+
+#previewContainer { margin-top: 15px; }
+
+#filePreview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.action-buttons button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-left: 5px;
+    background-color: #7f8c8d;
+}
+
+.action-buttons button:hover { background-color: #95a5a6; }
+
+.watermark {
     position: fixed;
     bottom: 10px;
     left: 0;
@@ -61,5 +121,48 @@ button:hover { background-color: #2980b9; }
     font-family: 'Courier New', Courier, monospace; 
     pointer-events: none;
     z-index: 1000;
+}
 
+body.dark-mode .watermark { color: #7f8c8d; }
+
+/* --- PRINT STYLES --- */
+@media print {
+    header, .upload-section, .watermark, #themeToggle, .result-header .action-buttons, #loading {
+        display: none !important;
+    }
+
+    body, .container {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    #resultSection {
+        display: block !important;
+        background: white !important;
+        color: black !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    #output {
+        font-size: 12pt;
+        line-height: 1.6;
+        color: black;
+    }
+
+    p, li, h2, h3, h4 {
+        page-break-inside: avoid;
+    }
+    
+    h2 {
+        margin-top: 20px;
+        page-break-after: avoid;
+    }
 }

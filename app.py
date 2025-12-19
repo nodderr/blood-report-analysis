@@ -1,5 +1,5 @@
 import os
-from flask import Flask,render_template,request, jsonify
+from flask import Flask, render_template, request, jsonify
 import google.generativeai as genai
 from dotenv import load_dotenv
 
@@ -20,13 +20,10 @@ Keep the tone reassuring but factual.
 Do not give medical advice or diagnosis.
 """
 
-
-#Main
 @app.route('/')
 def index():
     return render_template('index.html')
 
-#Analyze
 @app.route('/analyze', methods=['POST'])
 def analyze():
     try:

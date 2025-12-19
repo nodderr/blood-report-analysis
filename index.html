@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Report AI Analyzer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 
     <div class="container">
         <header>
@@ -14,8 +17,15 @@
             <p>Upload your blood report and let AI explain it simply.</p>
         </header>
 
-        <div class="upload-section">
+        <div class="upload-section" id="drop-area">
+            <p>Drag & Drop your file here or</p>
             <input type="file" id="fileInput" accept=".pdf, .jpg, .png">
+            
+            <div id="previewContainer" class="hidden">
+                <img id="filePreview" src="" alt="File Preview">
+                <p id="fileName"></p>
+            </div>
+
             <button id="analyzeBtn" onclick="analyzeReport()">Analyze Report</button>
         </div>
 
@@ -24,11 +34,17 @@
         </div>
 
         <div id="resultSection" class="hidden">
-            <h2>Your Summary</h2>
-            <div id="output" class="markdown-body">
+            <div class="result-header">
+                <h2>Your Summary</h2>
+                <div class="action-buttons">
+                    <button onclick="copyToClipboard()" title="Copy to Clipboard"><i class="fas fa-copy"></i> Copy</button>
+                    <button onclick="downloadReport()" title="Save as PDF"><i class="fas fa-file-pdf"></i> Save PDF</button>
                 </div>
+            </div>
+            <div id="output" class="markdown-body"></div>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 
