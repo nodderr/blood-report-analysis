@@ -222,3 +222,18 @@ body.dark-mode .report-table td {
 .table-container {
     overflow-x: auto;
 }
+
+/* Add this to the end of your style.css */
+
+.chart-wrapper {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .chart-wrapper {
+    background: #16213e; /* Matches container dark bg */
+    box-shadow: none;
+    border: 1px solid #2c3e50;
+}

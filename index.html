@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+<body class="dark-mode">
+    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">☀️ Light Mode</button>
 
     <div class="container">
         <header>
@@ -51,15 +51,7 @@
         <div id="historySection" class="hidden">
             <h2>📈 Health Trends</h2>
             
-            <div style="margin-bottom: 15px;">
-                <label for="metricSelect">Select Metric:</label>
-                <select id="metricSelect" onchange="updateChart()">
-                    </select>
-            </div>
-
-            <div class="chart-container" style="position: relative; height:300px;">
-                <canvas id="trendChart"></canvas>
-            </div>
+            <div id="chartsContainer"></div>
         </div>
 
     </div>
