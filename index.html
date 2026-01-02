@@ -8,44 +8,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <button id="themeToggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 
     <div class="container">
         <header>
             <h1>🩺 Health Decoder</h1>
             <p>Upload your blood report and let AI explain it simply.</p>
+            <div class="nav-buttons" style="margin-top: 20px;">
+                <button onclick="showUpload()">📄 New Analysis</button>
+                <button onclick="loadHistory()">📈 View Trends</button>
+            </div>
         </header>
 
-        <div class="upload-section" id="drop-area">
-            <p>Drag & Drop your file here or</p>
-            <input type="file" id="fileInput" accept=".pdf, .jpg, .png">
-            
-            <div id="previewContainer" class="hidden">
-                <img id="filePreview" src="" alt="File Preview">
-                <p id="fileName"></p>
-            </div>
-
-            <button id="analyzeBtn" onclick="analyzeReport()">Analyze Report</button>
-        </div>
-
-        <div id="loading" class="hidden">
-            <p>Analyzing... please wait...</p>
-        </div>
-
-        <div id="resultSection" class="hidden">
-            <div class="result-header">
-                <h2>Your Summary</h2>
-                <div class="action-buttons">
-                    <button onclick="copyToClipboard()" title="Copy to Clipboard"><i class="fas fa-copy"></i> Copy</button>
-                    <button onclick="downloadReport()" title="Save as PDF"><i class="fas fa-file-pdf"></i> Save PDF</button>
+        <div id="uploadSection">
+            <div class="upload-section" id="drop-area">
+                <p>Drag & Drop your file here or</p>
+                <input type="file" id="fileInput" accept=".pdf, .jpg, .png">
+                
+                <div id="previewContainer" class="hidden">
+                    <img id="filePreview" src="" alt="File Preview">
+                    <p id="fileName"></p>
                 </div>
+
+                <button id="analyzeBtn" onclick="analyzeReport()">Analyze Report</button>
             </div>
-            <div id="output" class="markdown-body"></div>
+            
+            <div id="loading" class="hidden">
+                <p>Analyzing... please wait...</p>
+            </div>
+
+            <div id="resultSection" class="hidden">
+                <div class="result-header">
+                    <h2>Your Summary</h2>
+                    <div class="action-buttons">
+                        <button onclick="copyToClipboard()"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                </div>
+                <div id="output"></div>
+            </div>
         </div>
+
+        <div id="historySection" class="hidden">
+            <h2>📈 Health Trends</h2>
+            
+            <div style="margin-bottom: 15px;">
+                <label for="metricSelect">Select Metric:</label>
+                <select id="metricSelect" onchange="updateChart()">
+                    </select>
+            </div>
+
+            <div class="chart-container" style="position: relative; height:300px;">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 
     <div class="watermark">Made by Noddy :)</div>

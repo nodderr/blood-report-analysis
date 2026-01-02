@@ -166,3 +166,59 @@ body.dark-mode .watermark { color: #7f8c8d; }
         page-break-after: avoid;
     }
 }
+
+/* --- Phase 1: New Table Styles --- */
+.summary-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+body.dark-mode .summary-box {
+    background-color: #1f2a40;
+    border-left-color: #5dade2;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+.report-table th, .report-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.report-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+body.dark-mode .report-table th {
+    background-color: #2c3e50;
+}
+
+body.dark-mode .report-table td {
+    border-bottom: 1px solid #444;
+}
+
+/* Highlight Abnormal Results */
+.status-warning {
+    color: #e74c3c; /* Red for High/Low */
+    font-weight: bold;
+}
+
+.status-normal {
+    color: #27ae60; /* Green for Normal */
+    font-weight: bold;
+}
+
+/* Responsive Table */
+.table-container {
+    overflow-x: auto;
+}
